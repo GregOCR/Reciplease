@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RecipeDetailsViewController.swift
 //  Reciplease
 //
 //  Created by Greg on 08/11/2021.
@@ -7,13 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class RecipeDetailsViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
+    
+    
 }
-

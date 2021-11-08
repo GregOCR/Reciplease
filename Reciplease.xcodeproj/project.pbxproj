@@ -9,13 +9,16 @@
 /* Begin PBXBuildFile section */
 		37CC173D2739598700C70E9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC173C2739598700C70E9F /* AppDelegate.swift */; };
 		37CC173F2739598800C70E9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC173E2739598800C70E9F /* SceneDelegate.swift */; };
-		37CC17412739598800C70E9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC17402739598800C70E9F /* ViewController.swift */; };
 		37CC17442739598800C70E9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37CC17422739598800C70E9F /* Main.storyboard */; };
 		37CC17462739598800C70E9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37CC17452739598800C70E9F /* Assets.xcassets */; };
 		37CC17492739598800C70E9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37CC17472739598800C70E9F /* LaunchScreen.storyboard */; };
 		37CC17542739598800C70E9F /* RecipleaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC17532739598800C70E9F /* RecipleaseTests.swift */; };
 		37CC175E2739598800C70E9F /* RecipleaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC175D2739598800C70E9F /* RecipleaseUITests.swift */; };
 		37CC17602739598800C70E9F /* RecipleaseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC175F2739598800C70E9F /* RecipleaseUITestsLaunchTests.swift */; };
+		37CC176D2739618F00C70E9F /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC176C2739618F00C70E9F /* SegueIdentifier.swift */; };
+		37CC17702739629700C70E9F /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC176F2739629700C70E9F /* RecipeListViewController.swift */; };
+		37CC1772273962CE00C70E9F /* RecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC1771273962CE00C70E9F /* RecipeDetailsViewController.swift */; };
+		37CC17752739649300C70E9F /* FridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC17742739649300C70E9F /* FridgeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +42,6 @@
 		37CC17392739598700C70E9F /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37CC173C2739598700C70E9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37CC173E2739598800C70E9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		37CC17402739598800C70E9F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		37CC17432739598800C70E9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		37CC17452739598800C70E9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37CC17482739598800C70E9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,10 @@
 		37CC17592739598800C70E9F /* RecipleaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37CC175D2739598800C70E9F /* RecipleaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseUITests.swift; sourceTree = "<group>"; };
 		37CC175F2739598800C70E9F /* RecipleaseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		37CC176C2739618F00C70E9F /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
+		37CC176F2739629700C70E9F /* RecipeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewController.swift; sourceTree = "<group>"; };
+		37CC1771273962CE00C70E9F /* RecipeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewController.swift; sourceTree = "<group>"; };
+		37CC17742739649300C70E9F /* FridgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +105,14 @@
 		37CC173B2739598700C70E9F /* Reciplease */ = {
 			isa = PBXGroup;
 			children = (
+				37CC176E2739627800C70E9F /* Controller */,
 				37CC173C2739598700C70E9F /* AppDelegate.swift */,
 				37CC173E2739598800C70E9F /* SceneDelegate.swift */,
-				37CC17402739598800C70E9F /* ViewController.swift */,
 				37CC17422739598800C70E9F /* Main.storyboard */,
 				37CC17452739598800C70E9F /* Assets.xcassets */,
 				37CC17472739598800C70E9F /* LaunchScreen.storyboard */,
 				37CC174A2739598800C70E9F /* Info.plist */,
+				37CC176C2739618F00C70E9F /* SegueIdentifier.swift */,
 			);
 			path = Reciplease;
 			sourceTree = "<group>";
@@ -125,6 +132,16 @@
 				37CC175F2739598800C70E9F /* RecipleaseUITestsLaunchTests.swift */,
 			);
 			path = RecipleaseUITests;
+			sourceTree = "<group>";
+		};
+		37CC176E2739627800C70E9F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				37CC176F2739629700C70E9F /* RecipeListViewController.swift */,
+				37CC1771273962CE00C70E9F /* RecipeDetailsViewController.swift */,
+				37CC17742739649300C70E9F /* FridgeViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +275,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37CC17412739598800C70E9F /* ViewController.swift in Sources */,
+				37CC17702739629700C70E9F /* RecipeListViewController.swift in Sources */,
+				37CC1772273962CE00C70E9F /* RecipeDetailsViewController.swift in Sources */,
+				37CC176D2739618F00C70E9F /* SegueIdentifier.swift in Sources */,
 				37CC173D2739598700C70E9F /* AppDelegate.swift in Sources */,
 				37CC173F2739598800C70E9F /* SceneDelegate.swift in Sources */,
+				37CC17752739649300C70E9F /* FridgeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +467,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,7 +477,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -475,6 +496,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -484,7 +506,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
