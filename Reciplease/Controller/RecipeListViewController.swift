@@ -12,7 +12,7 @@ class RecipeListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if recipes.isEsmpty {
+        if recipes.isEmpty {
             recipes = loadRecipesFromFavorites()
         }
     }
