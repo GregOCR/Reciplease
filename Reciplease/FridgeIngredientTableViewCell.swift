@@ -9,6 +9,7 @@ import UIKit
 
 class FridgeIngredientTableViewCell: UITableViewCell {
 
+    @IBOutlet private weak var ingredientHyphenLabel: UILabel!
     @IBOutlet private weak var ingredientTitleLabel: UILabel!
     
     override func awakeFromNib() {
@@ -24,6 +25,8 @@ class FridgeIngredientTableViewCell: UITableViewCell {
     
     func configure(ingredient: String) {
         ingredientTitleLabel.text = ingredient
+        ingredientTitleLabel.font = FontManager.shared.UIFont(type: .primary, size: 20)
+        ingredientHyphenLabel.font = FontManager.shared.UIFont(type: .primary, size: 20)
     }
 
 }

@@ -9,4 +9,5 @@ import Foundation
 
 struct CellIdentifier {
     static let fridgeIngredientCell = "FridgeIngredientCell"
+    static let recipeListCell = "RecipeListCell"
 }

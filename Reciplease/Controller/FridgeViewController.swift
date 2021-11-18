@@ -9,25 +9,23 @@ import UIKit
 
 class FridgeViewController: UIViewController {
     
-     // MARK: - Interface Builder
+    // MARK: - Interface Builder
     
     // MARK: IBOutlets
     
     @IBOutlet weak var addToFridgeHintLabel: UILabel!
+    @IBOutlet weak var ingredientListHeaderLabel: UILabel!
+
+    @IBOutlet weak var addIngredientButton: UIButton!
+    @IBOutlet weak var clearIngredientListButton: UIButton!
+    @IBOutlet weak var searchRecipesButton: UIButton!
     
     @IBOutlet weak var ingredientTextField: UITextField!
-    @IBOutlet weak var addIngredientButton: UIButton!
-    
-    @IBOutlet weak var ingredientListHeaderLabel: UILabel!
-    @IBOutlet weak var clearIngredientListButton: UIButton!
     
     @IBOutlet weak var ingredientsTableView: UITableView!
     
-    @IBOutlet weak var searchRecipesButton: UIButton!
-    
     
     // MARK: IBActions
-    
     
     @IBAction func didTapOnAddIngredientButton() {
         guard let ingredient = ingredientTextField.text else { return }
@@ -53,37 +51,30 @@ class FridgeViewController: UIViewController {
                     print("success fetch recipes")
                 }
             }
-            
         }
     }
-    
-    
-    
     
     // MARK: - INTERNAL
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         configureNavigationBar()
         configureTableView()
         configureFridgeManager()
         configureOutletsTexts()
     }
     
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        super.prepare(for: segue, sender: sender)
+    //
+    //        if let recipeListViewController = segue.destination as? RecipeListViewController {
+    //            recipeListViewController.recipes = ["Pizza", "Pasta"]
+    //        }
+    //    }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        super.prepare(for: segue, sender: sender)
-//
-//        if let recipeListViewController = segue.destination as? RecipeListViewController {
-//            recipeListViewController.recipes = ["Pizza", "Pasta"]
-//        }
-//    }
-    
-//    @IBAction func didTapOnNavigateToRecipeListButton() {
-//        performSegue(withIdentifier: SegueIdentifier.showRecipeListSegue, sender: nil)
-//    }
-    
+    //    @IBAction func didTapOnNavigateToRecipeListButton() {
+    //        performSegue(withIdentifier: SegueIdentifier.showRecipeListSegue, sender: nil)
+    //    }
     
     // MARK: - PRIVATE
     
@@ -103,6 +94,8 @@ class FridgeViewController: UIViewController {
     
     private func configureNavigationBar() {
         navigationItem.title = "Reciplease"
+        navigationController?.navigationBar.titleTextAttributes = FontManager.shared.NSFont(type: .secondary, size: 20, color: .white)
+        navigationController?.tabBarItem.title = "Search"
     }
     
     private func configureTableView() {
@@ -115,8 +108,25 @@ class FridgeViewController: UIViewController {
     }
     
     private func configureOutletsTexts() {
-        // TODO: Should set outlets texts here
-        #warning("Should set outlets texts here")
+        // add to fridge hint label
+        addToFridgeHintLabel.font = FontManager.shared.UIFont(type: .secondary, size: 20)
+        addToFridgeHintLabel.text = "What's in your fridge?"
+        // add ingredient button
+        addIngredientButton.titleLabel?.font = FontManager.shared.UIFont(type: .secondary, size: 20)
+        addIngredientButton.setTitle("Add", for: .normal)
+        // ingredients textField
+        ingredientTextField.font = FontManager.shared.UIFont(type: .secondary, size: 20)
+        ingredientTextField.placeholder = "lemon, cheese, sausages..."
+        // ingredients listHeader label
+        ingredientListHeaderLabel.font = FontManager.shared.UIFont(type: .primary, size: 20)
+        ingredientListHeaderLabel.text = "Your ingredients:"
+        // clear ingredients button
+        clearIngredientListButton.titleLabel?.font = FontManager.shared.UIFont(type: .secondary, size: 20)
+        clearIngredientListButton.setTitle("Clear", for: .normal)
+        // search for recipes button
+        searchRecipesButton.titleLabel?.font = FontManager.shared.UIFont(type: .secondary, size: 25)
+        searchRecipesButton.titleLabel?.text = "Search for recipes"
+        
     }
 }
 
@@ -136,10 +146,7 @@ extension FridgeViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
 }
-
 
 extension FridgeViewController: UITableViewDelegate {
     
@@ -149,5 +156,4 @@ extension FridgeViewController: FridgeManagerDelegate {
     func ingredientsDidChange() {
         ingredientsTableView.reloadData()
     }
-    
 }
