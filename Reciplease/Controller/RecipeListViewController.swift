@@ -5,55 +5,75 @@
 //  Created by Greg on 08/11/2021.
 //
 
+// loadRecipesFromFavorites ?
+
 import UIKit
 
-class RecipeListViewController: UIViewController {
-
+class RecipeListViewController: BaseViewController {
+    
+    @IBOutlet weak var addSomeFavoritesLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        recipeTableView.delegate = self
+        recipeTableView.dataSource = self
+        
         if recipes.isEmpty {
             recipes = loadRecipesFromFavorites()
         }
-        
-        configureNavigationBar()
+        configureOutletsTexts()
     }
     
-    @IBAction func didTapOnNavigateToRecipeDetailsButton() {
-        performSegue(withIdentifier: SegueIdentifier.showRecipeDetailsSegue, sender: nil)
+    @IBOutlet weak var recipeTableView: UITableView!
+            
+    var recipes: [Recipe] = []
+    private let font = FontManager.shared
+
+    private func loadRecipesFromFavorites() -> [Recipe] {
+        return [
+            
+        ]
     }
     
-    private func configureNavigationBar() {
-        navigationItem.title = "Reciplease"
-        navigationItem.backButtonTitle = "Back"
-        navigationController?.navigationBar.titleTextAttributes = FontManager.shared.NSFont(type: .primary, size: 20, color: .white)
-        navigationController?.tabBarItem.title = "Favorite"
+    private func configureOutletsTexts() {
+        addSomeFavoritesLabel.font = font.UI(family: .first, size: 25)
+        addSomeFavoritesLabel.text = LocalizedString.addSomeFavoritesLabel
     }
 
-    var recipes: [String] = []
-    
-    private func loadRecipesFromFavorites() -> [String] {
-        return ["haricot", "potatoes"]
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if let recipeDetailsViewController = segue.destination as? RecipeDetailsViewController,
+           let recipe = sender as? Recipe
+        {
+            recipeDetailsViewController.recipe = recipe
+        }
     }
 }
 
 extension RecipeListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        recipes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.fridgeIngredientCell, for: indexPath) as? FridgeIngredientTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.recipeListCell, for: indexPath) as? RecipeListTableViewCell else {
             return UITableViewCell()
         }
         
-//        let recipe = indexPath.row
+        addSomeFavoritesLabel.isHidden = true
+        
+        let recipe = recipes[indexPath.row]
+        
+        cell.configure(recipe: recipe)
         
         return cell
     }
 }
 
-
 extension RecipeListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedRecipe = recipes[indexPath.row]
+        performSegue(withIdentifier: SegueIdentifier.showRecipeDetailsSegue, sender: selectedRecipe)
+    }
 }

@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  Reciplease
+
+  Created by Greg on 18/11/2021.
+  
+*/
+
+// errors
+"unknown_error" = "Erreur inconnue";
+"failed_to_add_ingredient_due_to_already_present" = "Un ou plusieurs ingredients avaient déjà été rajoutés à la liste";
+"failed_to_fetch_recipes_due_to_could_not_create_url" = "Échec de la construction de l'URL";
+"failed_to_add_ingredient_due_to_empty_ingredient" = "Indiquez un ingrédient à rajouter à la liste";
+"failed_to_fetch_recipes_due_to_invalid_response" = "Échec lors de la récupération des recettes";
+"failed_to_fetch_recipes_due_to_no_recipe_corresponding_to_ingredients" = "Aucun résultat pour les ingrédients indiqués";
+// general
+"app_title" = "Reciplease";
+"app_back_button_title" = "Retour";
+"tab_bar_item_title_search" = "Recherche";
+"tab_bar_item_title_favorites" = "Favoris";
+// FridgeViewController
+"add_to_fridge_hint_label" = "Qu'y a-t-il dans votre frigo ?";
+"ingredient_text_field_placeholder" = "citron, fromage, saucisse...";
+"ingredient_list_header_label" = "Vos ingrédients :";
+"search_recipes_button_title" = "Rechercher des recettes";
+"ingredient_label" = "Ingrédients";
+"directions_button_label" = "Voir les instructions";
+// RecipeListViewController
+"add_some_favorites_label" = "Ajoutez des favoris pour les retrouver ici";

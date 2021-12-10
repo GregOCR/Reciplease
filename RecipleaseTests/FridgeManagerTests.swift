@@ -27,7 +27,7 @@ class FridgeManagerTests: XCTestCase {
         XCTAssertTrue(fridgeManager.ingredients.isEmpty)
         
         // when
-        try fridgeManager.add(ingredient: "pizza")
+        try fridgeManager.add(ingredientsInput: "pizza")
         
         // then
         XCTAssertFalse(fridgeManager.ingredients.isEmpty)
@@ -39,7 +39,7 @@ class FridgeManagerTests: XCTestCase {
         XCTAssertTrue(fridgeManager.ingredients.isEmpty)
         
         // when
-        try fridgeManager.add(ingredient: "Pizza")
+        try fridgeManager.add(ingredientsInput: "Pizza")
         
         // then
         let firstIngredient = try XCTUnwrap(fridgeManager.ingredients.first)
@@ -49,12 +49,12 @@ class FridgeManagerTests: XCTestCase {
     func test_givenIngredientIsAlreadyAdded_whenAddSameIngredient_thenAlreadyAddedError() throws {
         
         // given
-        try fridgeManager.add(ingredient: "Pizza")
+        try fridgeManager.add(ingredientsInput: "Pizza")
         XCTAssertEqual(fridgeManager.ingredients, ["pizza"])
         
         // when then
         
-        XCTAssertThrowsError(try fridgeManager.add(ingredient: "Pizza"), "") { error in
+        XCTAssertThrowsError(try fridgeManager.add(ingredientsInput: "Pizza"), "") { error in
             guard let error = error as? FridgeManager.Error else {
                 XCTFail()
                 return
@@ -70,12 +70,12 @@ class FridgeManagerTests: XCTestCase {
     func test_givenIngredientUpperCasedIsAlreadyAdded_whenAddSameIngredientButLowerCased_thenAlreadyAddedError() throws {
         
         // given
-        try fridgeManager.add(ingredient: "Pizza")
+        try fridgeManager.add(ingredientsInput: "Pizza")
         XCTAssertEqual(fridgeManager.ingredients, ["pizza"])
         
         // when then
         
-        XCTAssertThrowsError(try fridgeManager.add(ingredient: "pizza"), "") { error in
+        XCTAssertThrowsError(try fridgeManager.add(ingredientsInput: "pizza"), "") { error in
             guard let error = error as? FridgeManager.Error else {
                 XCTFail()
                 return
@@ -90,12 +90,12 @@ class FridgeManagerTests: XCTestCase {
     func test_givenIngredientIsAlreadyAdded_whenAddSameIngredientButWithSpaceStartAndEnd_thenAlreadyAddedError() throws {
         
         // given
-        try fridgeManager.add(ingredient: "pizza")
+        try fridgeManager.add(ingredientsInput: "pizza")
         XCTAssertEqual(fridgeManager.ingredients, ["pizza"])
         
         // when then
         
-        XCTAssertThrowsError(try fridgeManager.add(ingredient: " pizza "), "") { error in
+        XCTAssertThrowsError(try fridgeManager.add(ingredientsInput: " pizza "), "") { error in
             guard let error = error as? FridgeManager.Error else {
                 XCTFail()
                 return
@@ -117,7 +117,7 @@ class FridgeManagerTests: XCTestCase {
         
         // when then
         
-        XCTAssertThrowsError(try fridgeManager.add(ingredient: ""), "") { error in
+        XCTAssertThrowsError(try fridgeManager.add(ingredientsInput: ""), "") { error in
             guard let error = error as? FridgeManager.Error else {
                 XCTFail()
                 return
@@ -131,22 +131,22 @@ class FridgeManagerTests: XCTestCase {
     
     
     func test_givenEmptyIngredients_whenAddOnlySpacesIngredient_thenIngredientIsEmptyError() throws {
-        
+
         // given
         XCTAssertTrue(fridgeManager.ingredients.isEmpty)
-        
+
         // when then
-        
-        XCTAssertThrowsError(try fridgeManager.add(ingredient: "   "), "") { error in
+
+        XCTAssertThrowsError(try fridgeManager.add(ingredientsInput: "   "), "") { error in
             guard let error = error as? FridgeManager.Error else {
                 XCTFail()
                 return
             }
-            
+
             XCTAssertEqual(error, .failedToAddIngredientDueToEmptyIngredient)
         }
 
-    
+
     }
     
     
@@ -157,8 +157,8 @@ class FridgeManagerTests: XCTestCase {
     func test_given2IngredientsAlreadyAdded_whenClearIngredients_thenIngredientsIsEmpty() throws {
         
         // given
-        try fridgeManager.add(ingredient: "Pizza")
-        try fridgeManager.add(ingredient: "Pasta")
+        try fridgeManager.add(ingredientsInput: "Pizza")
+        try fridgeManager.add(ingredientsInput: "Pasta")
         XCTAssertEqual(fridgeManager.ingredients, ["pizza", "pasta"])
         
         // when

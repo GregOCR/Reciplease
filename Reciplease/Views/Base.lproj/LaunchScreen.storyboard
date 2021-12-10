@@ -17,21 +17,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AT2-dx-S8k">
-                                <rect key="frame" x="103.5" y="341" width="207" height="214"/>
+                                <rect key="frame" x="103.5" y="320.5" width="207" height="255"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cooker" translatesAutoresizingMaskIntoConstraints="NO" id="g6b-qd-oFx">
-                                        <rect key="frame" x="34.5" y="0.0" width="138" height="166"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="207"/>
                                         <color key="tintColor" systemColor="systemBrownColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="g6b-qd-oFx" secondAttribute="height" multiplier="1:1" id="yd6-0N-fv4"/>
+                                        </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reciplease" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gk-sp-NKl">
-                                        <rect key="frame" x="0.0" y="176" width="207" height="38"/>
+                                        <rect key="frame" x="0.0" y="217" width="207" height="38"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
                                         <color key="textColor" systemColor="systemBrownColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="g6b-qd-oFx" firstAttribute="width" secondItem="2gk-sp-NKl" secondAttribute="width" multiplier="0.666667" id="Zvb-DR-F8E"/>
+                                    <constraint firstItem="g6b-qd-oFx" firstAttribute="width" secondItem="2gk-sp-NKl" secondAttribute="width" id="Zvb-DR-F8E"/>
                                 </constraints>
                             </stackView>
                         </subviews>

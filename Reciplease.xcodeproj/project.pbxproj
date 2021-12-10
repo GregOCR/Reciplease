@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		371D6B952744EDBD00C2EA67 /* RecipeListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D6B942744EDBD00C2EA67 /* RecipeListTableViewCell.swift */; };
 		371D6B972744F96600C2EA67 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D6B962744F96600C2EA67 /* FontManager.swift */; };
-		3741A8802746047A00AA6EC2 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3741A87F2746047A00AA6EC2 /* Recipe.swift */; };
-		3741A882274607FE00AA6EC2 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3741A881274607FE00AA6EC2 /* ColorManager.swift */; };
+		37236D99274CC1A10003A6D9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37236D98274CC1A10003A6D9 /* Extensions.swift */; };
+		3779313D276250AA00AC54CD /* RecipeFavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3779313C276250AA00AC54CD /* RecipeFavoriteManager.swift */; };
+		3779313F2762513400AC54CD /* RecipeCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3779313E2762513400AC54CD /* RecipeCoreDataManager.swift */; };
+		379197382758F5B10088B7A8 /* NavigationBarConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379197372758F5B10088B7A8 /* NavigationBarConfigurator.swift */; };
 		37CC173D2739598700C70E9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC173C2739598700C70E9F /* AppDelegate.swift */; };
 		37CC173F2739598800C70E9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC173E2739598800C70E9F /* SceneDelegate.swift */; };
 		37CC17442739598800C70E9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37CC17422739598800C70E9F /* Main.storyboard */; };
@@ -26,6 +28,15 @@
 		37CC17782739724400C70E9F /* FridgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC17772739724400C70E9F /* FridgeManager.swift */; };
 		37CC177A27397A9A00C70E9F /* CellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC177927397A9A00C70E9F /* CellIdentifier.swift */; };
 		37CC177C27397B0D00C70E9F /* FridgeIngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC177B27397B0D00C70E9F /* FridgeIngredientTableViewCell.swift */; };
+		37D41FE727469B2700292A02 /* RecipleaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D41FE627469B2700292A02 /* RecipleaseTabBarController.swift */; };
+		37D41FEB27469E0300292A02 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37D41FED27469E0300292A02 /* Localizable.strings */; };
+		37D41FF027469EBC00292A02 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D41FEF27469EBC00292A02 /* String+Localized.swift */; };
+		37D41FF227469EFE00292A02 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D41FF127469EFE00292A02 /* LocalizedString.swift */; };
+		37D41FF52746A13800292A02 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D41FF42746A13800292A02 /* NetworkManager.swift */; };
+		37D41FF72747B28A00292A02 /* ImageResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D41FF62747B28A00292A02 /* ImageResource.swift */; };
+		37D41FF92747B5E600292A02 /* TabBarItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D41FF82747B5E600292A02 /* TabBarItemModel.swift */; };
+		37E5B28D2750DFCC00C9F5D6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E5B28C2750DFCC00C9F5D6 /* BaseViewController.swift */; };
+		37E5B28F2750E84800C9F5D6 /* RecipeSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E5B28E2750E84800C9F5D6 /* RecipeSearchResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +59,10 @@
 /* Begin PBXFileReference section */
 		371D6B942744EDBD00C2EA67 /* RecipeListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListTableViewCell.swift; sourceTree = "<group>"; };
 		371D6B962744F96600C2EA67 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
-		3741A87F2746047A00AA6EC2 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
-		3741A881274607FE00AA6EC2 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		37236D98274CC1A10003A6D9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3779313C276250AA00AC54CD /* RecipeFavoriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFavoriteManager.swift; sourceTree = "<group>"; };
+		3779313E2762513400AC54CD /* RecipeCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCoreDataManager.swift; sourceTree = "<group>"; };
+		379197372758F5B10088B7A8 /* NavigationBarConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationBarConfigurator.swift; path = Reciplease/System/NavigationBarConfigurator.swift; sourceTree = SOURCE_ROOT; };
 		37CC17392739598700C70E9F /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37CC173C2739598700C70E9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37CC173E2739598800C70E9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +82,16 @@
 		37CC17772739724400C70E9F /* FridgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeManager.swift; sourceTree = "<group>"; };
 		37CC177927397A9A00C70E9F /* CellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifier.swift; sourceTree = "<group>"; };
 		37CC177B27397B0D00C70E9F /* FridgeIngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeIngredientTableViewCell.swift; sourceTree = "<group>"; };
+		37D41FE627469B2700292A02 /* RecipleaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseTabBarController.swift; sourceTree = "<group>"; };
+		37D41FEC27469E0300292A02 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		37D41FEE27469E1600292A02 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		37D41FEF27469EBC00292A02 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
+		37D41FF127469EFE00292A02 /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
+		37D41FF42746A13800292A02 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		37D41FF62747B28A00292A02 /* ImageResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResource.swift; sourceTree = "<group>"; };
+		37D41FF82747B5E600292A02 /* TabBarItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemModel.swift; sourceTree = "<group>"; };
+		37E5B28C2750DFCC00C9F5D6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		37E5B28E2750E84800C9F5D6 /* RecipeSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +119,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3782F82E2760A9E4005FB511 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				37CC177B27397B0D00C70E9F /* FridgeIngredientTableViewCell.swift */,
+				371D6B942744EDBD00C2EA67 /* RecipeListTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
 		37CC17302739598700C70E9F = {
 			isa = PBXGroup;
 			children = (
@@ -119,11 +151,11 @@
 		37CC173B2739598700C70E9F /* Reciplease */ = {
 			isa = PBXGroup;
 			children = (
+				37D41FE827469DE900292A02 /* Resources */,
 				37CC17762739723400C70E9F /* Model */,
 				37CC17BD273C0BE600C70E9F /* Views */,
 				37CC176E2739627800C70E9F /* Controller */,
-				37CC177B27397B0D00C70E9F /* FridgeIngredientTableViewCell.swift */,
-				371D6B942744EDBD00C2EA67 /* RecipeListTableViewCell.swift */,
+				3782F82E2760A9E4005FB511 /* TableViewCell */,
 				37CC17BC273C0BA500C70E9F /* Identifiers */,
 				37CC17BB273C0B8200C70E9F /* System */,
 			);
@@ -150,9 +182,12 @@
 		37CC176E2739627800C70E9F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				379197372758F5B10088B7A8 /* NavigationBarConfigurator.swift */,
+				37E5B28C2750DFCC00C9F5D6 /* BaseViewController.swift */,
+				37D41FE627469B2700292A02 /* RecipleaseTabBarController.swift */,
+				37CC17742739649300C70E9F /* FridgeViewController.swift */,
 				37CC176F2739629700C70E9F /* RecipeListViewController.swift */,
 				37CC1771273962CE00C70E9F /* RecipeDetailsViewController.swift */,
-				37CC17742739649300C70E9F /* FridgeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -162,8 +197,12 @@
 			children = (
 				371D6B962744F96600C2EA67 /* FontManager.swift */,
 				37CC17772739724400C70E9F /* FridgeManager.swift */,
-				3741A87F2746047A00AA6EC2 /* Recipe.swift */,
-				3741A881274607FE00AA6EC2 /* ColorManager.swift */,
+				37D41FF42746A13800292A02 /* NetworkManager.swift */,
+				37D41FF82747B5E600292A02 /* TabBarItemModel.swift */,
+				37236D98274CC1A10003A6D9 /* Extensions.swift */,
+				37E5B28E2750E84800C9F5D6 /* RecipeSearchResponse.swift */,
+				3779313C276250AA00AC54CD /* RecipeFavoriteManager.swift */,
+				3779313E2762513400AC54CD /* RecipeCoreDataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -195,6 +234,17 @@
 				37CC17472739598800C70E9F /* LaunchScreen.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		37D41FE827469DE900292A02 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				37D41FED27469E0300292A02 /* Localizable.strings */,
+				37D41FF127469EFE00292A02 /* LocalizedString.swift */,
+				37D41FEF27469EBC00292A02 /* String+Localized.swift */,
+				37D41FF62747B28A00292A02 /* ImageResource.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +333,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 37CC17302739598700C70E9F;
 			productRefGroup = 37CC173A2739598700C70E9F /* Products */;
@@ -302,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37CC17492739598800C70E9F /* LaunchScreen.storyboard in Resources */,
+				37D41FEB27469E0300292A02 /* Localizable.strings in Resources */,
 				37CC17462739598800C70E9F /* Assets.xcassets in Resources */,
 				37CC17442739598800C70E9F /* Main.storyboard in Resources */,
 			);
@@ -328,17 +380,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37D41FF92747B5E600292A02 /* TabBarItemModel.swift in Sources */,
 				37CC17702739629700C70E9F /* RecipeListViewController.swift in Sources */,
+				37E5B28F2750E84800C9F5D6 /* RecipeSearchResponse.swift in Sources */,
 				371D6B972744F96600C2EA67 /* FontManager.swift in Sources */,
 				371D6B952744EDBD00C2EA67 /* RecipeListTableViewCell.swift in Sources */,
 				37CC1772273962CE00C70E9F /* RecipeDetailsViewController.swift in Sources */,
+				3779313F2762513400AC54CD /* RecipeCoreDataManager.swift in Sources */,
+				37E5B28D2750DFCC00C9F5D6 /* BaseViewController.swift in Sources */,
+				37D41FF52746A13800292A02 /* NetworkManager.swift in Sources */,
+				37D41FF027469EBC00292A02 /* String+Localized.swift in Sources */,
+				37236D99274CC1A10003A6D9 /* Extensions.swift in Sources */,
+				37D41FE727469B2700292A02 /* RecipleaseTabBarController.swift in Sources */,
 				37CC177A27397A9A00C70E9F /* CellIdentifier.swift in Sources */,
 				37CC176D2739618F00C70E9F /* SegueIdentifier.swift in Sources */,
 				37CC177C27397B0D00C70E9F /* FridgeIngredientTableViewCell.swift in Sources */,
-				3741A882274607FE00AA6EC2 /* ColorManager.swift in Sources */,
 				37CC17782739724400C70E9F /* FridgeManager.swift in Sources */,
+				3779313D276250AA00AC54CD /* RecipeFavoriteManager.swift in Sources */,
+				37D41FF72747B28A00292A02 /* ImageResource.swift in Sources */,
+				37D41FF227469EFE00292A02 /* LocalizedString.swift in Sources */,
 				37CC173D2739598700C70E9F /* AppDelegate.swift in Sources */,
-				3741A8802746047A00AA6EC2 /* Recipe.swift in Sources */,
+				379197382758F5B10088B7A8 /* NavigationBarConfigurator.swift in Sources */,
 				37CC173F2739598800C70E9F /* SceneDelegate.swift in Sources */,
 				37CC17752739649300C70E9F /* FridgeViewController.swift in Sources */,
 			);
@@ -393,6 +455,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		37D41FED27469E0300292A02 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37D41FEC27469E0300292A02 /* en */,
+				37D41FEE27469E1600292A02 /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -400,6 +471,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -461,6 +533,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

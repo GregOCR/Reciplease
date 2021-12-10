@@ -7,24 +7,27 @@
 
 import UIKit
 
-enum FontType: String {
-    case primary = "Chalkduster"
-    case secondary = "Futura Medium"
+enum FontFamily: String {
+    case first = "Chalkduster"
+    case second = "Futura Medium"
 }
 
 struct FontManager {
     
     static let shared = FontManager()
     
-    func NSFont(type: FontType, size: Int, color: UIColor) -> [NSAttributedString.Key: NSObject] {
-        return [NSAttributedString.Key.font:
-                    UIKit.UIFont(name: type.rawValue,
-                                 size: CGFloat(size))!,
-                .foregroundColor: color]
+    func NS(family: FontFamily, size: Int, color: UIColor) -> [NSAttributedString.Key: NSObject] {
+        return [
+            .font: UIFont(
+                name: family.rawValue,
+                size: CGFloat(size)
+            )!,
+            .foregroundColor: color
+        ]
     }
     
-    func UIFont(type: FontType, size: Int) -> UIFont? {
-        return UIKit.UIFont(name: type.rawValue,
+    func UI(family: FontFamily, size: Int) -> UIFont? {
+        return UIFont(name: family.rawValue,
                             size: CGFloat(size))
     }
 }

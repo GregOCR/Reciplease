@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 protocol FridgeManagerDelegate: AnyObject {
     func ingredientsDidChange()
+    func ingredientsChangedEmptyValue(isEmpty: Bool)
 }
 
 class FridgeManager {
@@ -16,54 +18,157 @@ class FridgeManager {
     enum Error: Swift.Error, LocalizedError {
         case failedToAddIngredientDueToAlreadyPresent
         case failedToAddIngredientDueToEmptyIngredient
-        case failedToFetchRecipesDueToBadDecodding
+        
+        case failedToFetchRecipesDueToCouldNotCreateUrl
+        case failedToFetchRecipesDueToInvalidResponse
+        
+        case failedToFetchRecipesDueToNoRecipeCorrespondingToIngredients
         
         var errorDescription: String? {
             switch self {
-            case .failedToAddIngredientDueToAlreadyPresent: return "Ingredient is already added"
-            case .failedToFetchRecipesDueToBadDecodding: return "Failed to decode response"
-            case .failedToAddIngredientDueToEmptyIngredient: return "Please input non-empty ingredient"
+            case .failedToAddIngredientDueToAlreadyPresent: return LocalizedString.failedToAddIngredientDueToAlreadyPresent
+            case .failedToFetchRecipesDueToCouldNotCreateUrl: return LocalizedString.failedToFetchRecipesDueToCouldNotCreateUrl
+            case .failedToAddIngredientDueToEmptyIngredient: return LocalizedString.failedToAddIngredientDueToEmptyIngredient
+            case .failedToFetchRecipesDueToInvalidResponse: return LocalizedString.failedToFetchRecipesDueToInvalidResponse
+            case .failedToFetchRecipesDueToNoRecipeCorrespondingToIngredients: return LocalizedString.failedToFetchRecipesDueToNoRecipeCorrespondingToIngredients
             }
         }
     }
     
     static let shared = FridgeManager()
     
-    weak var delegate: FridgeManagerDelegate?
+    weak var delegate: FridgeManagerDelegate? {
+        didSet {
+            setup()
+        }
+    }
     
+    /// Keep the ingredients as lowercased String
     var ingredients: [String] = [] {
         didSet {
             delegate?.ingredientsDidChange()
+            delegate?.ingredientsChangedEmptyValue(isEmpty: ingredients.isEmpty)
         }
     }
     
-    func add(ingredient: String) throws {
-        let formattedIngredient = ingredient.lowercased().trimmingCharacters(in: .whitespaces)
+    func add(ingredientsInput: String) throws {
         
-        guard !formattedIngredient.isEmpty else {
-            throw Error.failedToAddIngredientDueToEmptyIngredient
+        let splittedIngredientsInput = ingredientsInput.split(separator: ",")
+        var ingredientAlreadyPresent = false
+
+        for ingredient in splittedIngredientsInput {
+            let formattedIngredient = ingredient.trimmingCharacters(in: .whitespaces)
+            if ingredients.contains(formattedIngredient) {
+                ingredientAlreadyPresent = true
+            } else {
+                ingredients.append(formattedIngredient)
+            }
         }
-        
-        guard !ingredients.contains(formattedIngredient) else {
+        if ingredientAlreadyPresent {
             throw Error.failedToAddIngredientDueToAlreadyPresent
         }
-        
-        ingredients.append(formattedIngredient)
     }
-
+    
     func clearIngredients() {
         ingredients.removeAll()
     }
     
-    func fetchRecipes(completionHandler: (Result<MockStruct, Error>) -> Void) {
-        // networkManager.fetch()
-        completionHandler(.failure(.failedToFetchRecipesDueToBadDecodding))
+    private func setup() {
+        ingredients = []
     }
     
+    private func createSearchRecipesUrl(ingredients: [String]) -> URL? {
+        let queryValue = ingredients.joined(separator: ",")
+        
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api.edamam.com"
+        urlComponents.path = "/api/recipes/v2"
+        urlComponents.queryItems = [
+            .init(name: "type",
+                  value: "public"),
+            .init(name: "app_id",
+                  value: "a7499bd4"),
+            .init(name: "app_key",
+                  value: "d2068cb330edb02d07344821dd533820"),
+            .init(name: "q",
+                  value: queryValue)
+        ]
+        
+        return urlComponents.url
+    }
     
-    //private let networkManager = NetworkManager.shared
-}
+    func getValidatedEntries(ingredientTextFieldText : String) -> String {
 
+        let referenceString = "aàbcçdeéèfghijklmnopqrstuvwxyz,'- "
+
+        var validatedString = String()
+
+        ingredientTextFieldText.forEach( {
+            let entry = $0.lowercased().description
+            if referenceString.contains(entry) {
+                validatedString += entry
+            }
+        } )
+        
+        return validatedString
+    }
+    
+//    private func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+//        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+//    }
+//    
+//    func getImageView(imageUrl: String) -> UIImage {
+//        let formattedImageUrl = URL(string: imageUrl)!
+//        
+//        getData(from: formattedImageUrl) { data, response, error in
+//            guard let data = data, error == nil else { return }
+//            DispatchQueue.main.async() { [weak self] in
+//                return UIImage(data: data)
+//            }
+//        }
+//    }
+    
+    func getFormattedTime(recipeTotalTime: Int) -> String {
+        let hours = recipeTotalTime/60
+        let minutes = recipeTotalTime%60
+        var result = "\(hours)h\(String(format:"%02d", minutes))"
+        if hours == 0 { result = "\(minutes) mn" }
+        return result
+    }
+    
+    func getIngredientListString(ingredientLines: [String]) -> String {
+        var result = String()
+        ingredientLines.forEach( { result += "- \($0)\n" })
+        return result
+    }
+    
+    func fetchRecipes(completionHandler: @escaping (Result<[Recipe], Error>) -> Void) {
+        guard let url = createSearchRecipesUrl(ingredients: ingredients) else {
+            completionHandler(.failure(.failedToFetchRecipesDueToCouldNotCreateUrl))
+            return
+        }
+        
+        networkManager.fetch(url: url) { (result: Result<RecipeSearchResponse, NetworkManager.Error>) in
+            switch result {
+            case .success(let recipeSearchResponse):
+                let recipes = recipeSearchResponse.hits.map { $0.recipe }
+                guard !recipes.isEmpty else {
+                    completionHandler(.failure(.failedToFetchRecipesDueToNoRecipeCorrespondingToIngredients))
+                    return
+                }
+                completionHandler(.success(recipes))
+                return
+            case .failure:
+                completionHandler(.failure(.failedToFetchRecipesDueToInvalidResponse))
+                return
+            }
+        }
+    }
+    
+    private let networkManager = NetworkManager.shared
+    
+}
 
 struct MockStruct: Decodable {
     
