@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import SafariServices
 
 class RecipeDetailsViewController: BaseViewController {
     
     var recipe: Recipe?
+    
+    var recipeFavoriteManager = RecipeFavoriteManager.shared
     
     @IBOutlet weak var addFavoriteButton: UIButton!
     
@@ -28,7 +31,26 @@ class RecipeDetailsViewController: BaseViewController {
         super.viewDidLoad()
         
         configureOutletsTexts()
-        
+        configureRecipeImage()
+    }
+    
+    @IBAction func didTapAddFavoriteButton(_ sender: UIButton) {
+        configureFavoriteButton()
+        guard recipeFavoriteManager.addRecipeToFavorite(recipe: recipe!) else { return }
+    }
+    
+    @IBAction func didTapGetRecipeDirectionsButton(_ sender: UIButton) {
+        showSourcePage()
+    }
+    
+    private let font = FontManager.shared
+    private let fridgeManager = FridgeManager.shared
+    
+    private func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+    
+    private func configureRecipeImage() {
         let imageUrl = URL(string: recipe?.image ?? "")!
                 
         getData(from: imageUrl) { data, response, error in
@@ -39,15 +61,20 @@ class RecipeDetailsViewController: BaseViewController {
         }
     }
     
-    @IBAction func didTapAddFavoriteButton(_ sender: UIButton) {
-        
+    private func configureFavoriteButton() {
+        let image = UIImage(named: "star.fill")
+        addFavoriteButton.setImage(image, for: .normal)
     }
     
-    private let font = FontManager.shared
-    private let fridgeManager = FridgeManager.shared
-    
-    private func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    private func showSourcePage() {
+        if let url = URL(string: recipe?.url ?? "http://www.google.fr" ) {
+            let config = SFSafariViewController.Configuration()
+            config.entersReaderIfAvailable = true
+
+            let vc = SFSafariViewController(url: url, configuration: config)
+            vc.preferredBarTintColor = UIColor.black
+            present(vc, animated: true)
+        }
     }
     
     private func configureOutletsTexts() {

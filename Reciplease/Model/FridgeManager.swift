@@ -132,8 +132,12 @@ class FridgeManager {
     func getFormattedTime(recipeTotalTime: Int) -> String {
         let hours = recipeTotalTime/60
         let minutes = recipeTotalTime%60
+//        guard Int(hours) == 0 && Int(minutes) == 0 else { return "-- mn" }
+//        minutes = 0 ? minutes = 00 : minutes
         var result = "\(hours)h\(String(format:"%02d", minutes))"
-        if hours == 0 { result = "\(minutes) mn" }
+        if hours == 0 {
+            result = "\(minutes) mn"
+        }
         return result
     }
     

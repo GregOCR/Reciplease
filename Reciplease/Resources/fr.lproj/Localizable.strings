@@ -12,7 +12,7 @@
 "failed_to_fetch_recipes_due_to_could_not_create_url" = "Échec de la construction de l'URL";
 "failed_to_add_ingredient_due_to_empty_ingredient" = "Indiquez un ingrédient à rajouter à la liste";
 "failed_to_fetch_recipes_due_to_invalid_response" = "Échec lors de la récupération des recettes";
-"failed_to_fetch_recipes_due_to_no_recipe_corresponding_to_ingredients" = "Aucun résultat pour les ingrédients indiqués";
+"failed_to_fetch_recipes_due_to_no_recipe_corresponding_to_ingredients" = "Aucun résultat n'a été trouvé pour les ingrédients indiqués";
 // general
 "app_title" = "Reciplease";
 "app_back_button_title" = "Retour";

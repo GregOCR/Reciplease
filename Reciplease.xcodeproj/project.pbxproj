@@ -13,6 +13,7 @@
 		3779313D276250AA00AC54CD /* RecipeFavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3779313C276250AA00AC54CD /* RecipeFavoriteManager.swift */; };
 		3779313F2762513400AC54CD /* RecipeCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3779313E2762513400AC54CD /* RecipeCoreDataManager.swift */; };
 		379197382758F5B10088B7A8 /* NavigationBarConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379197372758F5B10088B7A8 /* NavigationBarConfigurator.swift */; };
+		3796776D276CB65100FC2A5F /* RecipeFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3796776C276CB65100FC2A5F /* RecipeFavoritesViewController.swift */; };
 		37CC173D2739598700C70E9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC173C2739598700C70E9F /* AppDelegate.swift */; };
 		37CC173F2739598800C70E9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC173E2739598800C70E9F /* SceneDelegate.swift */; };
 		37CC17442739598800C70E9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37CC17422739598800C70E9F /* Main.storyboard */; };
@@ -63,6 +64,7 @@
 		3779313C276250AA00AC54CD /* RecipeFavoriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFavoriteManager.swift; sourceTree = "<group>"; };
 		3779313E2762513400AC54CD /* RecipeCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCoreDataManager.swift; sourceTree = "<group>"; };
 		379197372758F5B10088B7A8 /* NavigationBarConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationBarConfigurator.swift; path = Reciplease/System/NavigationBarConfigurator.swift; sourceTree = SOURCE_ROOT; };
+		3796776C276CB65100FC2A5F /* RecipeFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFavoritesViewController.swift; sourceTree = "<group>"; };
 		37CC17392739598700C70E9F /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37CC173C2739598700C70E9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37CC173E2739598800C70E9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				37CC17742739649300C70E9F /* FridgeViewController.swift */,
 				37CC176F2739629700C70E9F /* RecipeListViewController.swift */,
 				37CC1771273962CE00C70E9F /* RecipeDetailsViewController.swift */,
+				3796776C276CB65100FC2A5F /* RecipeFavoritesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3796776D276CB65100FC2A5F /* RecipeFavoritesViewController.swift in Sources */,
 				37D41FF92747B5E600292A02 /* TabBarItemModel.swift in Sources */,
 				37CC17702739629700C70E9F /* RecipeListViewController.swift in Sources */,
 				37E5B28F2750E84800C9F5D6 /* RecipeSearchResponse.swift in Sources */,

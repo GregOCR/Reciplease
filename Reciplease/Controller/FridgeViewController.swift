@@ -115,7 +115,7 @@ class FridgeViewController: BaseViewController {
     
     private func presentAlert(error: Error) {
         let errorMessage = (error as? LocalizedError)?.errorDescription ?? LocalizedString.unknownError
-        let alertController = UIAlertController(title: "⚠️", message: errorMessage, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "👨‍🍳", message: errorMessage, preferredStyle: .alert)
         let okAlertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAlertAction)
         present(alertController, animated: true, completion: nil)
