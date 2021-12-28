@@ -241,18 +241,17 @@
                                                     <action selector="didTapOnSearchRecipesButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="cMl-VY-4yC"/>
                                                 </connections>
                                             </button>
-                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="XJE-DH-bIJ">
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="XJE-DH-bIJ">
                                                 <rect key="frame" x="188.5" y="21.5" width="37" height="37"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </activityIndicatorView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="Giu-l8-jt7" firstAttribute="leading" secondItem="44Z-Si-Ic7" secondAttribute="leading" constant="20" id="2yh-QY-jns"/>
                                             <constraint firstAttribute="trailing" secondItem="Giu-l8-jt7" secondAttribute="trailing" constant="20" id="3Ih-U4-Lpb"/>
-                                            <constraint firstItem="XJE-DH-bIJ" firstAttribute="centerX" secondItem="Giu-l8-jt7" secondAttribute="centerX" id="ByL-aL-Dnc"/>
+                                            <constraint firstAttribute="height" constant="90" id="Cda-4n-eHs"/>
                                             <constraint firstAttribute="bottom" secondItem="Giu-l8-jt7" secondAttribute="bottom" constant="20" id="eXG-14-Tru"/>
-                                            <constraint firstItem="XJE-DH-bIJ" firstAttribute="centerY" secondItem="Giu-l8-jt7" secondAttribute="centerY" id="fbF-oD-DId"/>
-                                            <constraint firstItem="Giu-l8-jt7" firstAttribute="top" secondItem="44Z-Si-Ic7" secondAttribute="top" constant="10" id="wbm-OY-cPt"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -297,7 +296,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVa-ak-58J">
-                                <rect key="frame" x="186.5" y="118" width="41.5" height="665"/>
+                                <rect key="frame" x="186.5" y="440.5" width="41.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -473,11 +472,11 @@
                         <constraints>
                             <constraint firstItem="oVa-ak-58J" firstAttribute="centerY" secondItem="6qF-dr-tQF" secondAttribute="centerY" id="5w0-qd-GOu"/>
                             <constraint firstItem="6qF-dr-tQF" firstAttribute="top" secondItem="XyS-bm-7pC" secondAttribute="top" id="7ax-Xy-eSu"/>
+                            <constraint firstItem="XyS-bm-7pC" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oVa-ak-58J" secondAttribute="trailing" constant="50" id="8ob-y9-VJL"/>
+                            <constraint firstItem="oVa-ak-58J" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XyS-bm-7pC" secondAttribute="leading" constant="50" id="Gfn-Xv-Fdo"/>
                             <constraint firstAttribute="trailing" secondItem="6qF-dr-tQF" secondAttribute="trailing" id="Hwx-xK-7sG"/>
-                            <constraint firstItem="XyS-bm-7pC" firstAttribute="bottom" secondItem="oVa-ak-58J" secondAttribute="bottom" constant="30" id="PHP-bI-RqZ"/>
                             <constraint firstItem="XyS-bm-7pC" firstAttribute="bottom" secondItem="6qF-dr-tQF" secondAttribute="bottom" id="coX-JK-6Ay"/>
                             <constraint firstItem="6qF-dr-tQF" firstAttribute="leading" secondItem="Gqy-xU-uot" secondAttribute="leading" id="fVg-nA-QtW"/>
-                            <constraint firstItem="oVa-ak-58J" firstAttribute="top" secondItem="XyS-bm-7pC" secondAttribute="top" constant="30" id="fYr-Py-FtI"/>
                             <constraint firstItem="oVa-ak-58J" firstAttribute="centerX" secondItem="6qF-dr-tQF" secondAttribute="centerX" id="iJD-RB-2qx"/>
                         </constraints>
                     </view>
@@ -702,21 +701,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tYi-54-TIB">
-                        <barButtonItem key="rightBarButtonItem" style="done" id="xRZ-mc-ENW">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="fBy-22-x3Q">
-                                <rect key="frame" x="302" y="5" width="92" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" systemColor="systemGreenColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="star" catalog="system" title=""/>
-                                <connections>
-                                    <action selector="didTapAddFavoriteButton:" destination="OCQ-qR-gKb" eventType="touchUpInside" id="VpO-G6-wUM"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" image="star" catalog="system" id="p72-X4-TtF">
+                            <color key="tintColor" systemColor="systemGreenColor"/>
+                            <connections>
+                                <action selector="didTapAddFavoriteButton:" destination="OCQ-qR-gKb" id="8lt-QB-t1I"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addFavoriteButton" destination="fBy-22-x3Q" id="Kgo-8e-ROF"/>
+                        <outlet property="addFavoriteButton" destination="p72-X4-TtF" id="X4g-fO-7Dm"/>
                         <outlet property="getRecipeDirectionsButton" destination="zF7-H1-cwi" id="Fti-lY-7MI"/>
                         <outlet property="ingredientListTextView" destination="hlA-M8-hfQ" id="Ukf-9A-6QV"/>
                         <outlet property="ingredientsLabel" destination="NKH-lW-HYE" id="nXg-aZ-vXo"/>

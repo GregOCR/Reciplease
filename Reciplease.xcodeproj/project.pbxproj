@@ -13,7 +13,7 @@
 		3779313D276250AA00AC54CD /* RecipeFavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3779313C276250AA00AC54CD /* RecipeFavoriteManager.swift */; };
 		3779313F2762513400AC54CD /* RecipeCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3779313E2762513400AC54CD /* RecipeCoreDataManager.swift */; };
 		379197382758F5B10088B7A8 /* NavigationBarConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379197372758F5B10088B7A8 /* NavigationBarConfigurator.swift */; };
-		3796776D276CB65100FC2A5F /* RecipeFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3796776C276CB65100FC2A5F /* RecipeFavoritesViewController.swift */; };
+		379677702770E98600FC2A5F /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3796776E2770E98600FC2A5F /* Reciplease.xcdatamodeld */; };
 		37CC173D2739598700C70E9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC173C2739598700C70E9F /* AppDelegate.swift */; };
 		37CC173F2739598800C70E9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC173E2739598800C70E9F /* SceneDelegate.swift */; };
 		37CC17442739598800C70E9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37CC17422739598800C70E9F /* Main.storyboard */; };
@@ -64,7 +64,7 @@
 		3779313C276250AA00AC54CD /* RecipeFavoriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFavoriteManager.swift; sourceTree = "<group>"; };
 		3779313E2762513400AC54CD /* RecipeCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCoreDataManager.swift; sourceTree = "<group>"; };
 		379197372758F5B10088B7A8 /* NavigationBarConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationBarConfigurator.swift; path = Reciplease/System/NavigationBarConfigurator.swift; sourceTree = SOURCE_ROOT; };
-		3796776C276CB65100FC2A5F /* RecipeFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFavoritesViewController.swift; sourceTree = "<group>"; };
+		3796776F2770E98600FC2A5F /* Reciplease.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reciplease.xcdatamodel; sourceTree = "<group>"; };
 		37CC17392739598700C70E9F /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37CC173C2739598700C70E9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37CC173E2739598800C70E9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,7 +190,6 @@
 				37CC17742739649300C70E9F /* FridgeViewController.swift */,
 				37CC176F2739629700C70E9F /* RecipeListViewController.swift */,
 				37CC1771273962CE00C70E9F /* RecipeDetailsViewController.swift */,
-				3796776C276CB65100FC2A5F /* RecipeFavoritesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -198,6 +197,7 @@
 		37CC17762739723400C70E9F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3796776E2770E98600FC2A5F /* Reciplease.xcdatamodeld */,
 				371D6B962744F96600C2EA67 /* FontManager.swift */,
 				37CC17772739724400C70E9F /* FridgeManager.swift */,
 				37D41FF42746A13800292A02 /* NetworkManager.swift */,
@@ -383,7 +383,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3796776D276CB65100FC2A5F /* RecipeFavoritesViewController.swift in Sources */,
 				37D41FF92747B5E600292A02 /* TabBarItemModel.swift in Sources */,
 				37CC17702739629700C70E9F /* RecipeListViewController.swift in Sources */,
 				37E5B28F2750E84800C9F5D6 /* RecipeSearchResponse.swift in Sources */,
@@ -396,6 +395,7 @@
 				37D41FF027469EBC00292A02 /* String+Localized.swift in Sources */,
 				37236D99274CC1A10003A6D9 /* Extensions.swift in Sources */,
 				37D41FE727469B2700292A02 /* RecipleaseTabBarController.swift in Sources */,
+				379677702770E98600FC2A5F /* Reciplease.xcdatamodeld in Sources */,
 				37CC177A27397A9A00C70E9F /* CellIdentifier.swift in Sources */,
 				37CC176D2739618F00C70E9F /* SegueIdentifier.swift in Sources */,
 				37CC177C27397B0D00C70E9F /* FridgeIngredientTableViewCell.swift in Sources */,
@@ -783,6 +783,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3796776E2770E98600FC2A5F /* Reciplease.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3796776F2770E98600FC2A5F /* Reciplease.xcdatamodel */,
+			);
+			currentVersion = 3796776F2770E98600FC2A5F /* Reciplease.xcdatamodel */;
+			name = Reciplease.xcdatamodeld;
+			path = ../../Reciplease.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 37CC17312739598700C70E9F /* Project object */;
 }

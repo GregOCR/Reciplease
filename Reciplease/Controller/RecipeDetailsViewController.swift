@@ -14,7 +14,7 @@ class RecipeDetailsViewController: BaseViewController {
     
     var recipeFavoriteManager = RecipeFavoriteManager.shared
     
-    @IBOutlet weak var addFavoriteButton: UIButton!
+    @IBOutlet weak var addFavoriteButton: UIBarButtonItem!
     
     @IBOutlet weak var recipeImageView: UIImageView!
     
@@ -29,14 +29,24 @@ class RecipeDetailsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         configureOutletsTexts()
         configureRecipeImage()
     }
     
-    @IBAction func didTapAddFavoriteButton(_ sender: UIButton) {
-        configureFavoriteButton()
-        guard recipeFavoriteManager.addRecipeToFavorite(recipe: recipe!) else { return }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        updateFavoriteButtonState()
+    }
+    
+    @IBAction func didTapAddFavoriteButton(_ sender: UIBarButtonItem) {
+        guard let recipe = recipe else {
+            return
+        }
+
+        guard recipeFavoriteManager.toggleRecipeInFavorite(recipe: recipe) else { return }
+        updateFavoriteButtonState()
     }
     
     @IBAction func didTapGetRecipeDirectionsButton(_ sender: UIButton) {
@@ -51,7 +61,7 @@ class RecipeDetailsViewController: BaseViewController {
     }
     
     private func configureRecipeImage() {
-        let imageUrl = URL(string: recipe?.image ?? "")!
+        guard let imageUrl = URL(string: recipe?.image ?? "") else { return }
                 
         getData(from: imageUrl) { data, response, error in
             guard let data = data, error == nil else { return }
@@ -61,19 +71,25 @@ class RecipeDetailsViewController: BaseViewController {
         }
     }
     
-    private func configureFavoriteButton() {
-        let image = UIImage(named: "star.fill")
-        addFavoriteButton.setImage(image, for: .normal)
+    private func updateFavoriteButtonState() {
+        guard let recipe = recipe else {
+            return
+        }
+
+        let isRecipeFavorited = recipeFavoriteManager.isRecipeFavorited(recipe: recipe)
+        let image = UIImage(systemName: isRecipeFavorited ? "star.fill" : "star")
+        addFavoriteButton.image = image
+        
     }
     
     private func showSourcePage() {
-        if let url = URL(string: recipe?.url ?? "http://www.google.fr" ) {
+        if let url = URL(string: recipe?.url ?? "http://www.edamam.com" ) {
             let config = SFSafariViewController.Configuration()
             config.entersReaderIfAvailable = true
 
-            let vc = SFSafariViewController(url: url, configuration: config)
-            vc.preferredBarTintColor = UIColor.black
-            present(vc, animated: true)
+            let safariViewController = SFSafariViewController(url: url, configuration: config)
+            safariViewController.preferredBarTintColor = UIColor.black
+            present(safariViewController, animated: true)
         }
     }
     

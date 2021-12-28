@@ -12,29 +12,33 @@ import UIKit
 class RecipeListViewController: BaseViewController {
     
     @IBOutlet weak var addSomeFavoritesLabel: UILabel!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
         recipeTableView.delegate = self
         recipeTableView.dataSource = self
         
-        if recipes.isEmpty {
-            recipes = loadRecipesFromFavorites()
-        }
         configureOutletsTexts()
+    }
+    
+    var shouldDisplayFavorite = true
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if shouldDisplayFavorite {
+            recipes = recipeFavoriteManager.getFavoriteRecipes()
+            recipeTableView.reloadData()
+        }
     }
     
     @IBOutlet weak var recipeTableView: UITableView!
             
     var recipes: [Recipe] = []
+    
     private let font = FontManager.shared
-
-    private func loadRecipesFromFavorites() -> [Recipe] {
-        return [
-            
-        ]
-    }
+    private let recipeFavoriteManager = RecipeFavoriteManager.shared
     
     private func configureOutletsTexts() {
         addSomeFavoritesLabel.font = font.UI(family: .first, size: 25)
@@ -53,15 +57,19 @@ class RecipeListViewController: BaseViewController {
 
 extension RecipeListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        recipes.count
+        let recipesCount = recipes.count
+        if recipesCount > 0 {
+            addSomeFavoritesLabel.isHidden = true
+        } else {
+            addSomeFavoritesLabel.isHidden = false
+        }
+        return recipesCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.recipeListCell, for: indexPath) as? RecipeListTableViewCell else {
             return UITableViewCell()
         }
-        
-        addSomeFavoritesLabel.isHidden = true
         
         let recipe = recipes[indexPath.row]
         

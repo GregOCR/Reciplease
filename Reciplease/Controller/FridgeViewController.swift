@@ -97,6 +97,7 @@ class FridgeViewController: BaseViewController {
                let recipes = sender as? [Recipe]
             {
                 recipeListViewController.recipes = recipes
+                recipeListViewController.shouldDisplayFavorite = false
             }
         }
     

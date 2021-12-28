@@ -10,14 +10,24 @@ import Foundation
 class RecipeFavoriteManager {
     
     static let shared = RecipeFavoriteManager()
+        
+    private var fakeStoredRecipes: [Recipe] = []
     
-    private var fakeStoredRecipes: [Recipe] = [] {
-        didSet {
-            print(fakeStoredRecipes.description)
+    func isRecipeFavorited(recipe: Recipe) -> Bool {
+        fakeStoredRecipes.contains { storedRecipe in
+            storedRecipe.label == recipe.label
         }
     }
     
-    func addRecipeToFavorite(recipe: Recipe) -> Bool {
+    func toggleRecipeInFavorite(recipe: Recipe) -> Bool {
+        if isRecipeFavorited(recipe: recipe) {
+            return deleteRecipeFromFavorite(recipe: recipe)
+        } else {
+            return addRecipeToFavorite(recipe: recipe)
+        }
+    }
+    
+    private func addRecipeToFavorite(recipe: Recipe) -> Bool {
         guard getIndexOfRecipe(recipe) == nil else { return false }
         fakeStoredRecipes.append(recipe)
         return true
