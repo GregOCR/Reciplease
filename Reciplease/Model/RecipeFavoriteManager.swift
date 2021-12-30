@@ -9,12 +9,17 @@ import Foundation
 
 class RecipeFavoriteManager {
     
+    // MARK: - INTERNAL
+    
+    // MARK: Internal - Properties
+    
     static let shared = RecipeFavoriteManager()
         
-    private var fakeStoredRecipes: [Recipe] = []
+    // MARK: Internal - Methods
     
     func isRecipeFavorited(recipe: Recipe) -> Bool {
-        fakeStoredRecipes.contains { storedRecipe in
+        let favoritedStoredRecipes = recipeCoreDataManager.getStoredRecipes()
+        return favoritedStoredRecipes.contains { storedRecipe in
             storedRecipe.label == recipe.label
         }
     }
@@ -27,23 +32,25 @@ class RecipeFavoriteManager {
         }
     }
     
-    private func addRecipeToFavorite(recipe: Recipe) -> Bool {
-        guard getIndexOfRecipe(recipe) == nil else { return false }
-        fakeStoredRecipes.append(recipe)
-        return true
-    }
-    
     func deleteRecipeFromFavorite(recipe: Recipe) -> Bool {
-        fakeStoredRecipes.remove(at: getIndexOfRecipe(recipe) ?? 0)
-        return true
+        recipeCoreDataManager.deleteStoredRecipe(recipe: recipe)
     }
     
     func getFavoriteRecipes() -> [Recipe] {
-        return fakeStoredRecipes
+        return recipeCoreDataManager.getStoredRecipes()
     }
     
-    private func getIndexOfRecipe(_ recipe: Recipe) -> Int? {
-        let recipeLabel = recipe.label.description
-        return fakeStoredRecipes.firstIndex(where: {$0.label.description == recipeLabel})
+    // MARK: - PRIVATE
+    
+    // MARK: Private - Properties
+    
+    private let recipeCoreDataManager = RecipeCoreDataManager.shared
+
+    // MARK: Private - Methods
+    
+    private func addRecipeToFavorite(recipe: Recipe) -> Bool {
+        guard !isRecipeFavorited(recipe: recipe) else { return false }
+        recipeCoreDataManager.storeRecipe(recipe: recipe)
+        return true
     }
 }

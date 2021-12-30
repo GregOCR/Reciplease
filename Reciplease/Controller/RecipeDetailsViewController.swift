@@ -10,9 +10,9 @@ import SafariServices
 
 class RecipeDetailsViewController: BaseViewController {
     
-    var recipe: Recipe?
+    // MARK: - INTERFACE BUILDER
     
-    var recipeFavoriteManager = RecipeFavoriteManager.shared
+    // MARK: IBOutlets
     
     @IBOutlet weak var addFavoriteButton: UIBarButtonItem!
     
@@ -27,18 +27,7 @@ class RecipeDetailsViewController: BaseViewController {
     
     @IBOutlet weak var getRecipeDirectionsButton: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        configureOutletsTexts()
-        configureRecipeImage()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        updateFavoriteButtonState()
-    }
+    // MARK: IBActions
     
     @IBAction func didTapAddFavoriteButton(_ sender: UIBarButtonItem) {
         guard let recipe = recipe else {
@@ -53,8 +42,37 @@ class RecipeDetailsViewController: BaseViewController {
         showSourcePage()
     }
     
+    // MARK: - INTERNAL
+    
+    // MARK: Internal - Properties
+    
+    var recipe: Recipe?
+    
+    var recipeFavoriteManager = RecipeFavoriteManager.shared
+    
+    // MARK: Internal - Methods
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        configureOutletsTexts()
+        configureRecipeImage()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        updateFavoriteButtonState()
+    }
+    
+    // MARK: - PRIVATE
+    
+    // MARK: Private - Properties
+    
     private let font = FontManager.shared
     private let fridgeManager = FridgeManager.shared
+    
+    // MARK: Private - Methods
     
     private func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()

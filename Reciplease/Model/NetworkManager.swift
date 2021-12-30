@@ -9,6 +9,8 @@ import Foundation
 
 class NetworkManager {
     
+    // MARK: - ENUM
+    
     enum Error: Swift.Error {
         case unknowError
         case invalidStatusCode
@@ -16,7 +18,13 @@ class NetworkManager {
         case failedToDecodeData
     }
     
+    // MARK: - INTERNAL
+    
+    // MARK: Internal - Properties
+    
     static let shared = NetworkManager()
+    
+    // MARK: Internal - Methods
     
     func fetch<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>) -> Void) {
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
@@ -49,16 +57,4 @@ class NetworkManager {
         }
         task.resume()
     }
-    
-    /*
-     [
-     CodingKeys(
-     stringValue: "hits", intValue: nil),
-     _JSONKey(stringValue: "Index 1", intValue: 1),
-     CodingKeys(stringValue: "recipe", intValue: nil),
-     CodingKeys(stringValue: "ingredients", intValue: nil),
-     _JSONKey(stringValue: "Index 6", intValue: 6),
-     CodingKeys(stringValue: "foodCategory", intValue: nil)
-     ]
-     */
 }

@@ -8,7 +8,14 @@
 import UIKit
 
 class NavigationBarConfigurator {
+    
+    // MARK: - INTERNAL
+    
+    // MARK: Internal - Properties
+    
     static let shared = NavigationBarConfigurator()
+    
+    // MARK: Internal - Methods
     
     func setupCustomNavigationBar() {
         let appearance = UINavigationBarAppearance()

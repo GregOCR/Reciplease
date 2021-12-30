@@ -11,7 +11,7 @@ import UIKit
 
 class FridgeViewController: BaseViewController {
     
-    // MARK: - Interface Builder
+    // MARK: - INTERFACE BUILDER
     
     // MARK: IBOutlets
     
@@ -20,7 +20,7 @@ class FridgeViewController: BaseViewController {
     
     @IBOutlet weak var addToFridgeHintLabel: UILabel!
     @IBOutlet weak var ingredientListHeaderLabel: UILabel!
-
+    
     @IBOutlet weak var searchRecipeActivityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var searchRecipesButton: UIButton!
     
@@ -71,16 +71,9 @@ class FridgeViewController: BaseViewController {
         }
     }
     
-    func clearIngredientTextField() {
-        ingredientTextField.text = ""
-    }
-    
-    func searchRecipeButton(available: Bool) {
-        searchRecipesButton.isEnabled = available
-        searchRecipeActivityIndicatorView.isHidden = available
-    }
-    
     // MARK: - INTERNAL
+    
+    // MARK: Internal - Methods
     
     override func viewDidLoad() {
         
@@ -90,20 +83,25 @@ class FridgeViewController: BaseViewController {
         configureOutletsTexts()
     }
     
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            super.prepare(for: segue, sender: sender)
-    
-            if let recipeListViewController = segue.destination as? RecipeListViewController,
-               let recipes = sender as? [Recipe]
-            {
-                recipeListViewController.recipes = recipes
-                recipeListViewController.shouldDisplayFavorite = false
-            }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if let recipeListViewController = segue.destination as? RecipeListViewController,
+           let recipes = sender as? [Recipe]
+        {
+            recipeListViewController.recipes = recipes
+            recipeListViewController.shouldDisplayFavorite = false
         }
+    }
     
-    //    @IBAction func didTapOnNavigateToRecipeListButton() {
-    //        performSegue(withIdentifier: SegueIdentifier.showRecipeListSegue, sender: nil)
-    //    }
+    func clearIngredientTextField() {
+        ingredientTextField.text = ""
+    }
+    
+    func searchRecipeButton(available: Bool) {
+        searchRecipesButton.isEnabled = available
+        searchRecipeActivityIndicatorView.isHidden = available
+    }
     
     // MARK: - PRIVATE
     
@@ -151,7 +149,13 @@ class FridgeViewController: BaseViewController {
     }
 }
 
+// MARK: - EXTENSIONS
+
 extension FridgeViewController: UITableViewDataSource {
+    
+    // MARK: - INTERNAL
+    
+    // MARK: Internal - Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         fridgeManager.ingredients.count
@@ -175,6 +179,11 @@ extension FridgeViewController: UITableViewDelegate {
 }
 
 extension FridgeViewController: FridgeManagerDelegate {
+    
+    // MARK: - INTERNAL
+    
+    // MARK: Internal - Methods
+    
     func ingredientsChangedEmptyValue(isEmpty: Bool) {
         [searchRecipesButton,
          ingredientHeaderAndTrashButtonView,

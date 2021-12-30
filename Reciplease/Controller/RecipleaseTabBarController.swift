@@ -9,12 +9,35 @@ import UIKit
 
 class RecipleaseTabBarController: UITabBarController {
     
+    // MARK: - INTERNAL
+    
+    // MARK: Internal - Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTabBar()
         setupTabBarItems()
     }
+    
+    // MARK: - PRIVATE
+    
+    // MARK: Private - Properties
+    
+    private let tabBarItemModels: [TabBarItemModel] = [
+        .init(
+            title: LocalizedString.tabBarItemTitleSearch,
+            iconImageName: ImageResource.System.magnifyingGlassCircle,
+            selectedIconImageName: ImageResource.System.magnifyingGlass
+        ),
+        .init(
+            title: LocalizedString.tabBarItemTitleFavorites,
+            iconImageName: ImageResource.System.starCircle,
+            selectedIconImageName: ImageResource.System.starFill
+        )
+    ]
+    
+    // MARK: Private - Methods
     
     private func setupTabBar() {
         tabBar.tintColor = .white
@@ -31,17 +54,5 @@ class RecipleaseTabBarController: UITabBarController {
         }
     }
     
-    private let tabBarItemModels: [TabBarItemModel] = [
-        .init(
-            title: LocalizedString.tabBarItemTitleSearch,
-            iconImageName: ImageResource.System.magnifyingGlassCircle,
-            selectedIconImageName: ImageResource.System.magnifyingGlass
-        ),
-        .init(
-            title: LocalizedString.tabBarItemTitleFavorites,
-            iconImageName: ImageResource.System.starCircle,
-            selectedIconImageName: ImageResource.System.starFill
-        )
-    ]
 }
 

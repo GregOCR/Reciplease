@@ -9,6 +9,11 @@ import Foundation
 import UIKit
 
 class BaseViewController: UIViewController {
+    
+    // MARK: - INTERNAL
+    
+    // MARK: Internal - Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()

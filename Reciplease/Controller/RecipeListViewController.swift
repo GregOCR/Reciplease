@@ -11,8 +11,24 @@ import UIKit
 
 class RecipeListViewController: BaseViewController {
     
+    // MARK: - INTERFACE BUILDER
+    
+    // MARK: IBOutlets
+    
     @IBOutlet weak var addSomeFavoritesLabel: UILabel!
-        
+    
+    @IBOutlet weak var recipeTableView: UITableView!
+    
+    // MARK: - INTERNAL
+    
+    // MARK: Internal - Properties
+    
+    var shouldDisplayFavorite = true
+    
+    var recipes: [Recipe] = []
+    
+    // MARK: Internal - Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,8 +37,6 @@ class RecipeListViewController: BaseViewController {
         
         configureOutletsTexts()
     }
-    
-    var shouldDisplayFavorite = true
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -33,18 +47,6 @@ class RecipeListViewController: BaseViewController {
         }
     }
     
-    @IBOutlet weak var recipeTableView: UITableView!
-            
-    var recipes: [Recipe] = []
-    
-    private let font = FontManager.shared
-    private let recipeFavoriteManager = RecipeFavoriteManager.shared
-    
-    private func configureOutletsTexts() {
-        addSomeFavoritesLabel.font = font.UI(family: .first, size: 25)
-        addSomeFavoritesLabel.text = LocalizedString.addSomeFavoritesLabel
-    }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if let recipeDetailsViewController = segue.destination as? RecipeDetailsViewController,
@@ -53,9 +55,29 @@ class RecipeListViewController: BaseViewController {
             recipeDetailsViewController.recipe = recipe
         }
     }
+    
+    // MARK: - PRIVATE
+    
+    // MARK: Private - Properties
+    
+    private let font = FontManager.shared
+    private let recipeFavoriteManager = RecipeFavoriteManager.shared
+    
+    // MARK: Private - Methods
+    
+    private func configureOutletsTexts() {
+        addSomeFavoritesLabel.font = font.UI(family: .first, size: 25)
+        addSomeFavoritesLabel.text = LocalizedString.addSomeFavoritesLabel
+    }
+    
 }
 
 extension RecipeListViewController: UITableViewDataSource {
+    
+    // MARK: - INTERNAL
+    
+    // MARK: Internal - Methods
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let recipesCount = recipes.count
         if recipesCount > 0 {
@@ -80,6 +102,11 @@ extension RecipeListViewController: UITableViewDataSource {
 }
 
 extension RecipeListViewController: UITableViewDelegate {
+    
+    // MARK: - INTERNAL
+    
+    // MARK: Internal - Methods
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedRecipe = recipes[indexPath.row]
         performSegue(withIdentifier: SegueIdentifier.showRecipeDetailsSegue, sender: selectedRecipe)

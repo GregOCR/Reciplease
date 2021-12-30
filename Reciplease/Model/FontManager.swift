@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 enum FontFamily: String {
     case first = "Chalkduster"
@@ -14,7 +15,13 @@ enum FontFamily: String {
 
 struct FontManager {
     
+    // MARK: - INTERNAL
+    
+    // MARK: Internal - Properties
+    
     static let shared = FontManager()
+    
+    // MARK: Internal - Methods
     
     func NS(family: FontFamily, size: Int, color: UIColor) -> [NSAttributedString.Key: NSObject] {
         return [

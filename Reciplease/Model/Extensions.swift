@@ -9,7 +9,12 @@ import Foundation
 import UIKit
 
 extension UIButton {
-    func titleAttributes(string: String, fontFamily: FontFamily, size: Int) {
+    
+    // MARK: - INTERNAL
+    
+    // MARK: Internal - Methods
+    
+    internal func titleAttributes(string: String, fontFamily: FontFamily, size: Int) {
         
         let attributes: [NSAttributedString.Key: Any] = [
             .font: FontManager.shared.UI(family: fontFamily, size: size)!
@@ -25,6 +30,11 @@ extension UIButton {
 }
 
 extension UIView {
+    
+    // MARK: - INTERNAL
+    
+    // MARK: Internal - Methods
+
     internal func shake() {
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.05
