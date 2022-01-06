@@ -19,8 +19,7 @@ class RecipeCoreDataManager {
     // MARK: Internal - Methods
     
     func storeRecipe(recipe: Recipe) {
-        
-        //recipeIngredients = recipe.ingredients
+    
         
         let ingredientsFoodAsStringArray: [String] = recipe.ingredients.map {
             $0.food
@@ -31,41 +30,31 @@ class RecipeCoreDataManager {
         recipeEntity.image = recipe.image
         recipeEntity.url = recipe.url
         recipeEntity.uri = recipe.uri
-        recipeEntity.ingredientLines = recipe.ingredientLines.joined(separator: ",")
-        recipeEntity.ingredients = ingredientsFoodAsStringArray.joined(separator: ",")
+        recipeEntity.ingredientLines = recipe.ingredientLines
+        recipeEntity.ingredients = ingredientsFoodAsStringArray
         recipeEntity.calories = recipe.calories
         recipeEntity.totalTime = Double(recipe.totalTime)
         
         coreDataManager.saveContext()
     }
     
-    
-    
     func getStoredRecipes() -> [Recipe] {
         let recipeEntities = getStoredRecipeEntities()
         
-        
-        
-    
-        
-        let recipes = recipeEntities.map { recipeEntity -> Recipe in
-            let recipeIngredientsAsString: String = recipeEntity.ingredients ?? ""
-            let splittedRecipeIngredientsFood: [String] = recipeIngredientsAsString.components(separatedBy: ",")
-            let recipeIngredients: [Ingredient] = splittedRecipeIngredientsFood.map {
+        let recipes = recipeEntities.map { recipEntity -> Recipe in
+            let recipeIngredients = recipEntity.ingredients.map {
                 Ingredient(food: $0)
             }
-
-            let ingredientsLines: [String] = (recipeEntity.ingredientLines ?? "").components(separatedBy: ",")
             
             return Recipe(
-                label: recipeEntity.label ?? "",
-                image: recipeEntity.image ?? "",
-                url: recipeEntity.url ?? "",
-                uri: recipeEntity.uri ?? "",
-                ingredientLines: ingredientsLines,
+                label: recipEntity.label,
+                image: recipEntity.image,
+                url: recipEntity.url,
+                uri: recipEntity.uri,
+                ingredientLines: recipEntity.ingredientLines,
                 ingredients: recipeIngredients,
-                calories: recipeEntity.calories,
-                totalTime: Int(recipeEntity.totalTime)
+                calories: recipEntity.calories,
+                totalTime: Int(recipEntity.totalTime)
             )
         }
         return recipes

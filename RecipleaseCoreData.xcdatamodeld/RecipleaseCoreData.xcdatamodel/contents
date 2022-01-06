@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="RecipeEntity" representedClassName="RecipeEntity" syncable="YES">
-        <attribute name="calories" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="image" optional="YES" attributeType="String"/>
-        <attribute name="ingredientLines" attributeType="String"/>
-        <attribute name="ingredients" optional="YES" attributeType="String"/>
-        <attribute name="label" optional="YES" attributeType="String"/>
-        <attribute name="totalTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="uri" optional="YES" attributeType="String"/>
-        <attribute name="url" optional="YES" attributeType="String"/>
+        <attribute name="calories" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="image" attributeType="String"/>
+        <attribute name="ingredientLines" attributeType="Transformable" valueTransformerName="String"/>
+        <attribute name="ingredients" attributeType="Transformable" valueTransformerName="String"/>
+        <attribute name="label" attributeType="String"/>
+        <attribute name="totalTime" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="uri" attributeType="String"/>
+        <attribute name="url" attributeType="String"/>
     </entity>
     <elements>
         <element name="RecipeEntity" positionX="-63" positionY="-18" width="128" height="149"/>

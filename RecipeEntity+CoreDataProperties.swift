@@ -17,13 +17,13 @@ extension RecipeEntity {
     }
 
     @NSManaged public var calories: Double
-    @NSManaged public var ingredientLines: String?
-    @NSManaged public var image: String?
-    @NSManaged public var url: String?
-    @NSManaged public var ingredients: String?
-    @NSManaged public var label: String?
+    @NSManaged public var ingredientLines: [String]
+    @NSManaged public var image: String
+    @NSManaged public var url: String
+    @NSManaged public var ingredients: [String]
+    @NSManaged public var label: String
     @NSManaged public var totalTime: Double
-    @NSManaged public var uri: String?
+    @NSManaged public var uri: String
 
 }
 
