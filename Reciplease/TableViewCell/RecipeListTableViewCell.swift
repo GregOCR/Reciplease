@@ -48,8 +48,6 @@ class RecipeListTableViewCell: UITableViewCell {
             }
         }
         
-        
-        
         var ingredients = ""
         
         recipe.ingredients.forEach( {

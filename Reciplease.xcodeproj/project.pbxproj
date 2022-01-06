@@ -10,8 +10,8 @@
 		371D6B952744EDBD00C2EA67 /* RecipeListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D6B942744EDBD00C2EA67 /* RecipeListTableViewCell.swift */; };
 		371D6B972744F96600C2EA67 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371D6B962744F96600C2EA67 /* FontManager.swift */; };
 		37236D99274CC1A10003A6D9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37236D98274CC1A10003A6D9 /* Extensions.swift */; };
-		374458B6277DF53D00AAC4F0 /* RecipeEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374458B4277DF53D00AAC4F0 /* RecipeEntity+CoreDataClass.swift */; };
-		374458B7277DF53D00AAC4F0 /* RecipeEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374458B5277DF53D00AAC4F0 /* RecipeEntity+CoreDataProperties.swift */; };
+		376DA8EA27845F4B002C37B5 /* RecipeEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376DA8E827845F4B002C37B5 /* RecipeEntity+CoreDataClass.swift */; };
+		376DA8EB27845F4B002C37B5 /* RecipeEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376DA8E927845F4B002C37B5 /* RecipeEntity+CoreDataProperties.swift */; };
 		3779313D276250AA00AC54CD /* RecipeFavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3779313C276250AA00AC54CD /* RecipeFavoriteManager.swift */; };
 		3779313F2762513400AC54CD /* RecipeCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3779313E2762513400AC54CD /* RecipeCoreDataManager.swift */; };
 		379197382758F5B10088B7A8 /* NavigationBarConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379197372758F5B10088B7A8 /* NavigationBarConfigurator.swift */; };
@@ -64,8 +64,8 @@
 		371D6B942744EDBD00C2EA67 /* RecipeListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListTableViewCell.swift; sourceTree = "<group>"; };
 		371D6B962744F96600C2EA67 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		37236D98274CC1A10003A6D9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		374458B4277DF53D00AAC4F0 /* RecipeEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		374458B5277DF53D00AAC4F0 /* RecipeEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		376DA8E827845F4B002C37B5 /* RecipeEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		376DA8E927845F4B002C37B5 /* RecipeEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3779313C276250AA00AC54CD /* RecipeFavoriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFavoriteManager.swift; sourceTree = "<group>"; };
 		3779313E2762513400AC54CD /* RecipeCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCoreDataManager.swift; sourceTree = "<group>"; };
 		379197372758F5B10088B7A8 /* NavigationBarConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationBarConfigurator.swift; path = Reciplease/System/NavigationBarConfigurator.swift; sourceTree = SOURCE_ROOT; };
@@ -139,8 +139,8 @@
 		37CC17302739598700C70E9F = {
 			isa = PBXGroup;
 			children = (
-				374458B4277DF53D00AAC4F0 /* RecipeEntity+CoreDataClass.swift */,
-				374458B5277DF53D00AAC4F0 /* RecipeEntity+CoreDataProperties.swift */,
+				376DA8E827845F4B002C37B5 /* RecipeEntity+CoreDataClass.swift */,
+				376DA8E927845F4B002C37B5 /* RecipeEntity+CoreDataProperties.swift */,
 				37FA1DB5277B136E00A010B7 /* RecipleaseCoreData.xcdatamodeld */,
 				37CC173B2739598700C70E9F /* Reciplease */,
 				37CC17522739598800C70E9F /* RecipleaseTests */,
@@ -402,9 +402,9 @@
 				37E5B28D2750DFCC00C9F5D6 /* BaseViewController.swift in Sources */,
 				37D41FF52746A13800292A02 /* NetworkManager.swift in Sources */,
 				37FA1DB7277B136E00A010B7 /* RecipleaseCoreData.xcdatamodeld in Sources */,
-				374458B6277DF53D00AAC4F0 /* RecipeEntity+CoreDataClass.swift in Sources */,
+				376DA8EA27845F4B002C37B5 /* RecipeEntity+CoreDataClass.swift in Sources */,
 				37D41FF027469EBC00292A02 /* String+Localized.swift in Sources */,
-				374458B7277DF53D00AAC4F0 /* RecipeEntity+CoreDataProperties.swift in Sources */,
+				376DA8EB27845F4B002C37B5 /* RecipeEntity+CoreDataProperties.swift in Sources */,
 				37236D99274CC1A10003A6D9 /* Extensions.swift in Sources */,
 				37D41FE727469B2700292A02 /* RecipleaseTabBarController.swift in Sources */,
 				37CC177A27397A9A00C70E9F /* CellIdentifier.swift in Sources */,

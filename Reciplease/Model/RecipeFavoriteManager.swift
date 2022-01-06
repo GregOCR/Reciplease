@@ -20,7 +20,7 @@ class RecipeFavoriteManager {
     func isRecipeFavorited(recipe: Recipe) -> Bool {
         let favoritedStoredRecipes = recipeCoreDataManager.getStoredRecipes()
         return favoritedStoredRecipes.contains { storedRecipe in
-            storedRecipe.label == recipe.label
+            storedRecipe.uri == recipe.uri
         }
     }
     

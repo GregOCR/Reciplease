@@ -2,7 +2,7 @@
 //  RecipeEntity+CoreDataProperties.swift
 //  Reciplease
 //
-//  Created by Greg on 30/12/2021.
+//  Created by Greg on 04/01/2022.
 //
 //
 
@@ -17,9 +17,13 @@ extension RecipeEntity {
     }
 
     @NSManaged public var calories: Double
-    @NSManaged public var ingredientLines: String
-    @NSManaged public var label: String
-    @NSManaged public var totalTime: Int16
+    @NSManaged public var ingredientLines: String?
+    @NSManaged public var image: String?
+    @NSManaged public var url: String?
+    @NSManaged public var ingredients: String?
+    @NSManaged public var label: String?
+    @NSManaged public var totalTime: Double
+    @NSManaged public var uri: String?
 
 }
 
