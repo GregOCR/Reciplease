@@ -61,6 +61,10 @@ class FridgeManager {
     
     // MARK: Internal - Methods
     
+    init(networkManager: NetworkManagerProtocol = AlamofireNetworkManager.shared) {
+        self.networkManager = networkManager
+    }
+    
     func getValidatedEntries(ingredientTextFieldText : String) -> String {
         
         let referenceString = "aàbcçdeéèfghijklmnopqrstuvwxyz,'- "
@@ -101,7 +105,7 @@ class FridgeManager {
             return
         }
         
-        networkManager.fetch(url: url) { (result: Result<RecipeSearchResponse, NetworkManager.Error>) in
+        networkManager.fetch(url: url) { (result: Result<RecipeSearchResponse, NetworkManagerError>) in
             switch result {
             case .success(let recipeSearchResponse):
                 let recipes = recipeSearchResponse.hits.map { $0.recipe }
@@ -144,7 +148,7 @@ class FridgeManager {
     
     // MARK: Private - Properties
     
-    private let networkManager = NetworkManager.shared
+    private let networkManager: NetworkManagerProtocol
     
     // MARK: Private - Methods
     

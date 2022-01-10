@@ -1,5 +1,5 @@
 //
-//  NetworkManager.swift
+//  URLSessionNetworkManager.swift
 //  Reciplease
 //
 //  Created by Greg on 18/11/2021.
@@ -7,26 +7,30 @@
 
 import Foundation
 
-class NetworkManager {
-    
-    // MARK: - ENUM
-    
-    enum Error: Swift.Error {
-        case unknowError
-        case invalidStatusCode
-        case noData
-        case failedToDecodeData
-    }
+enum NetworkManagerError: Error {
+    case unknowError
+    case invalidStatusCode
+    case noData
+    case failedToDecodeData
+}
+
+protocol NetworkManagerProtocol {
+    func fetch<T: Decodable>(url: URL, completion: @escaping (Result<T, NetworkManagerError>) -> Void)
+}
+
+
+class URLSessionNetworkManager: NetworkManagerProtocol {
+
     
     // MARK: - INTERNAL
     
     // MARK: Internal - Properties
     
-    static let shared = NetworkManager()
+    static let shared = URLSessionNetworkManager()
     
     // MARK: Internal - Methods
     
-    func fetch<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>) -> Void) {
+    func fetch<T: Decodable>(url: URL, completion: @escaping (Result<T, NetworkManagerError>) -> Void) {
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard error == nil else {
                 completion(.failure(.unknowError))
